@@ -1,0 +1,472 @@
+.main {
+  position: relative;
+  min-height: 100vh;
+  padding: 4rem 3rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  color: black;
+}
+
+.videoBackground {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.videoBackgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  margin: 0 !important;
+  object-fit: cover;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: -8px;
+}
+
+.content {
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.landingTitle {
+  font-family: "Bruno Ace";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 64px;
+}
+
+.landingSubtitle {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 56px;
+}
+
+.button {
+  width: 211px !important;
+  height: 46px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+
+  font-family: "Poppins";
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px;
+  line-height: 24px;
+
+  transition: all 0.3 ease-in-out;
+  color: white;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.imageSelection {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.imageInput {
+  width: 400px;
+  height: 400px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.imageInput::-webkit-file-upload-button {
+  display: none;
+}
+
+.imageInput[type="file"] {
+  color: transparent;
+}
+
+.imageInputText {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 3rem;
+  z-index: 1;
+  color: white;
+}
+
+.imageUploadContainer {
+  position: relative;
+  border: 0.5px solid #ffffff;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  z-index: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.imageInputText {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 3rem;
+  z-index: 1;
+  color: white;
+}
+
+.previewContainer {
+  top: 0px;
+  width: 400px !important;
+  height: 400px !important;
+  position: absolute;
+  background: #18151e;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.input {
+  width: 350px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+}
+
+.inputContainer {
+  align-items: flex-start !important;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.eventTitle {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.eventDate {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.eventTime {
+  font-size: 20px;
+}
+
+.eventHost {
+  font-weight: 700;
+}
+
+.eventLocation {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.eventImage {
+  border-radius: 20px;
+}
+
+@media (max-width: 550px) {
+  .main {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .verifiedContentContainer {
+    width: 100%;
+    padding: 3rem;
+    padding-top: 6rem;
+    z-index: 10;
+    align-items: flex-start !important;
+  }
+
+  .contentContainer {
+    width: 100%;
+    padding: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 0rem;
+    z-index: 10;
+    align-items: flex-start !important;
+  }
+
+  .loadingContainer {
+    justify-content: center !important;
+    width: 100%;
+    height: 90vh;
+    padding: 3.5rem;
+    padding-top: 5rem;
+    z-index: 10;
+    align-items: flex-start !important;
+  }
+
+  .eventHeaderMobile {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    padding-top: 4px;
+  }
+
+  .eventTicketNo {
+    font-family: "Plus Jakarta Sans";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    padding-bottom: 10px;
+  }
+
+  .eventTitleMobile {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .eventDateMobile {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .eventTimeMobile {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .eventHostMobile {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .eventLocationMobile {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .eventDescMobile {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .button {
+    width: 180px !important;
+    height: 42px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+  }
+
+  .navbar {
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    z-index: 1;
+    bottom: 8px;
+  }
+
+  .poweredBy {
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .logo {
+    font-family: "Bruno Ace";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .drawer {
+    background-color: black !important;
+    color: black !important;
+  }
+
+  .drawerButton {
+    width: 100%;
+    height: 80px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+
+    justify-content: space-evenly;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    transition: all 0.3 ease-in-out;
+  }
+
+  .drawerHeader {
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .drawerButton:active {
+    transform: scale(0.95);
+  }
+
+  .fantom {
+    width: 110px;
+  }
+
+  .visa {
+    width: 70px;
+  }
+}
+
+.modalContent {
+  max-width: 700px !important;
+  border-radius: 20px !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(2px);
+  padding: 1rem 0 1rem 0;
+}
+
+.modalHeader {
+  text-align: center;
+}
+
+.bgUploadContainer {
+  position: relative;
+  justify-content: center !important;
+  align-items: center !important;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  z-index: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.bgInput {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.bgInput::-webkit-file-upload-button {
+  display: none;
+}
+
+.bgInput[type="file"] {
+  color: transparent;
+}
+
+.bgContainer {
+  width: 400px;
+  overflow-x: scroll;
+}
+
+.bgInputText {
+  position: absolute;
+  top: 31px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 3rem;
+  z-index: 1;
+  color: white;
+}
+
+.bgPreviewContainer {
+  top: -0px;
+  width: 100px !important;
+  height: 100px !important;
+  position: absolute;
+  background: #18151e;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.isPrivate {
+  filter: blur(5px);
+}
+
+.privateLabel {
+  font-size: 12px;
+  text-align: center;
+  font-style: italic;
+}
+
+.spinnerContainer {
+  height: 185px;
+  justify-content: center !important;
+}

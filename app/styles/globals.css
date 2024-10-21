@@ -1,0 +1,59 @@
+html,
+body {
+  height: 100vh;
+  color: #000000;
+  background-color: #000000 !important;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.dynamic-bg {
+  width: 100vw !important;
+  height: 100vh !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.App {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.dynamic-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 550px) {
+  .dynamic-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+}
