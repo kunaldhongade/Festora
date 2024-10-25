@@ -1,37 +1,37 @@
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
-import styles from "@styles/Home.module.css";
-import { useAccount, useSigner } from "wagmi";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
-  VStack,
-  Input,
-  Textarea,
-  Switch,
   Button,
-  Text,
-  Spinner,
+  Link as ChakraLink,
   HStack,
   Image,
+  Input,
   InputGroup,
   InputLeftElement,
   InputRightElement,
-  Link as ChakraLink,
+  Spinner,
+  Switch,
+  Text,
+  Textarea,
+  VStack,
 } from "@chakra-ui/react";
-import axios from "axios";
-import Link from "next/link";
-import { Event } from "@utils/types";
-import { ethers } from "ethers";
-import TixoProtocolV1 from "@data/TixoProtocolV1.json";
 import Landing from "@components/Landing";
-import { ImageContext, TIXO_API_URL } from "./_app";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import SuccessLottie from "@components/SuccessLottie";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import withTransition from "@components/withTransition";
+import TixoProtocolV1 from "@data/TixoProtocolV1.json";
+import styles from "@styles/Home.module.css";
+import { Event } from "@utils/types";
+import axios from "axios";
+import { ethers } from "ethers";
+import Link from "next/link";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import { useAccount, useSigner } from "wagmi";
+import { ImageContext, TIXO_API_URL } from "./_app";
 
 const NFT_ADDRESS = process.env.NEXT_PUBLIC_TIXO_ADDRESS;
 
 function ImageSelector({ setBgImage }) {
-  const images = ["/0.jpg", "/1.png", "/2.jpg", "/3.jpg"];
+  const images = ["/0.jpg", "/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg"];
   const [uploadedBg, setUploadedBg] = useState<Blob>();
 
   function handleImageBg(e) {
@@ -206,19 +206,7 @@ function App() {
     };
   }, []);
 
-  const isMobile = useMemo(() => width <= 500, [width]);
-
-  if (!address) return <Landing />;
-
-  if (isMobile)
-    return (
-      <main className={styles.main}>
-        <Text textAlign="center">
-          This page is only supported on desktop at the moment. Thank you for
-          understanding.
-        </Text>
-      </main>
-    );
+  // if (!address) return <Landing />;
 
   if (isSuccess)
     return (
@@ -389,7 +377,7 @@ function App() {
               <VStack h="24px" />
             )}
           </VStack>
-          <VStack gap={5}>
+          <VStack gap={5} width="100%">
             {!uploadedImage ? (
               <VStack className={styles.inputContainer}>
                 <Text>Image</Text>

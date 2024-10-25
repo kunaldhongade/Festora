@@ -470,3 +470,53 @@
   height: 185px;
   justify-content: center !important;
 }
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inputContainer {
+    width: 100% !important;
+  }
+
+  .input {
+    width: 100% !important;
+  }
+
+  .imageInput {
+    width: 100% !important;
+    height: auto;
+  }
+
+  .imageSelection {
+    width: 80px;
+    height: 80px;
+  }
+
+  .previewContainer {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .bgContainer {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .bgPreviewContainer {
+    width: 80px;
+    height: 80px;
+  }
+
+  .scrollContainer {
+    height: 300px;
+    /* Adjust for better mobile fit */
+  }
+}

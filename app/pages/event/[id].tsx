@@ -1,50 +1,55 @@
-import { useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/router";
-import axios from "axios";
 import {
   Button,
-  HStack,
-  Spinner,
-  Text,
-  VStack,
-  Image,
   Drawer,
   DrawerBody,
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  useDisclosure,
+  HStack,
+  Image,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  TableContainer,
+  Spinner,
   Table,
+  TableContainer,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
+  useDisclosure,
+  useToast,
+  VStack,
 } from "@chakra-ui/react";
-import { Event } from "@utils/types";
-import styles from "@styles/Home.module.css";
-import { useAccount, useDisconnect, useProvider, useSigner } from "wagmi";
-import { ethers } from "ethers";
-import TixoProtocolV1 from "@data/TixoProtocolV1.json";
-import QRCode from "react-qr-code";
-import ReactCardFlip from "react-card-flip";
-import { format } from "date-fns";
-import { FaMapMarkerAlt, FaSmile } from "react-icons/fa";
-import { useToast } from "@chakra-ui/react";
-import { ImageContext, TIXO_API_URL, TIXO_CLIENT_URL } from "pages/_app";
-import withTransition from "@components/withTransition";
-import { loadStripe } from "@stripe/stripe-js";
-import { abridgeAddress } from "@utils/utils";
-import { useConnectModal } from "@rainbow-me/rainbowkit";
 import SuccessLottie from "@components/SuccessLottie";
-import { useSignMessage } from "wagmi";
+import withTransition from "@components/withTransition";
+import TixoProtocolV1 from "@data/TixoProtocolV1.json";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { loadStripe } from "@stripe/stripe-js";
+import styles from "@styles/Home.module.css";
+import { Event } from "@utils/types";
+import { abridgeAddress } from "@utils/utils";
+import axios from "axios";
+import { format } from "date-fns";
+import { ethers } from "ethers";
+import { useRouter } from "next/router";
+import { ImageContext, TIXO_API_URL, TIXO_CLIENT_URL } from "pages/_app";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import ReactCardFlip from "react-card-flip";
+import { FaMapMarkerAlt, FaSmile } from "react-icons/fa";
+import QRCode from "react-qr-code";
+import {
+  useAccount,
+  useDisconnect,
+  useProvider,
+  useSigner,
+  useSignMessage,
+} from "wagmi";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API_KEY);
 
