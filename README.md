@@ -21,8 +21,6 @@ In today’s event space, both attendees and organizers face several challenges:
 
 - **NFT-Based Ticketing 🎟️**: Verifiable and tradeable tickets that eliminate fraud.
 - **Gas-Free Transactions ⛽**: Organizers cover gas fees, making transactions smooth for users.
-- **Soulbound Tokens 🎖️**: Issue non-transferable proof of attendance for lasting memories.
-- **Multi-Payment Methods 💳**: Accept both crypto and fiat payments with Stripe integration.
 - **Blacklist Management 🚫**: Ensure event security by controlling access to organizers and attendees.
 - **Customizable Event Pages 📄**: Design branded pages tailored to your event.
 - **Token-Gated Access 🔑**: Create exclusive events accessible only with community tokens.
