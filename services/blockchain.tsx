@@ -1,9 +1,9 @@
-import { ethers } from 'ethers'
-import address from '@/contracts/contractAddress.json'
 import abi from '@/artifacts/contracts/DappEventX.sol/DappEventX.json'
-import { EventParams, EventStruct, TicketStruct } from '@/utils/type.dt'
-import { globalActions } from '@/store/globalSlices'
+import address from '@/contracts/contractAddress.json'
 import { store } from '@/store'
+import { globalActions } from '@/store/globalSlices'
+import { EventParams, EventStruct, TicketStruct } from '@/utils/type.dt'
+import { ethers } from 'ethers'
 
 const toWei = (num: number) => ethers.parseEther(num.toString())
 const fromWei = (num: number) => ethers.formatEther(num)
@@ -35,8 +35,8 @@ const getEthereumContracts = async () => {
 
 const createEvent = async (event: EventParams): Promise<void> => {
   if (!ethereum) {
-    reportError('Please install a browser provider')
-    return Promise.reject(new Error('Browser provider not installed'))
+    reportError('Please install a ethereum wallet provider')
+    return Promise.reject(new Error('ethereum wallet provider not installed'))
   }
 
   try {
@@ -61,8 +61,8 @@ const createEvent = async (event: EventParams): Promise<void> => {
 
 const updateEvent = async (event: EventParams): Promise<void> => {
   if (!ethereum) {
-    reportError('Please install a browser provider')
-    return Promise.reject(new Error('Browser provider not installed'))
+    reportError('Please install a ethereum wallet provider')
+    return Promise.reject(new Error('ethereum wallet provider not installed'))
   }
 
   try {
@@ -88,8 +88,8 @@ const updateEvent = async (event: EventParams): Promise<void> => {
 
 const deleteEvent = async (eventId: number): Promise<void> => {
   if (!ethereum) {
-    reportError('Please install a browser provider')
-    return Promise.reject(new Error('Browser provider not installed'))
+    reportError('Please install a ethereum wallet provider')
+    return Promise.reject(new Error('ethereum wallet provider not installed'))
   }
 
   try {
@@ -106,8 +106,8 @@ const deleteEvent = async (eventId: number): Promise<void> => {
 
 const payout = async (eventId: number): Promise<void> => {
   if (!ethereum) {
-    reportError('Please install a browser provider')
-    return Promise.reject(new Error('Browser provider not installed'))
+    reportError('Please install a ethereum wallet provider')
+    return Promise.reject(new Error('ethereum wallet provider not installed'))
   }
 
   try {
@@ -127,8 +127,8 @@ const payout = async (eventId: number): Promise<void> => {
 
 const buyTicket = async (event: EventStruct, tickets: number): Promise<void> => {
   if (!ethereum) {
-    reportError('Please install a browser provider')
-    return Promise.reject(new Error('Browser provider not installed'))
+    reportError('Please install a ethereum wallet provider')
+    return Promise.reject(new Error('ethereum wallet provider not installed'))
   }
 
   try {
@@ -209,13 +209,13 @@ const structuredTicket = (tickets: TicketStruct[]): TicketStruct[] =>
     .sort((a, b) => b.timestamp - a.timestamp)
 
 export {
+  buyTicket,
+  createEvent,
+  deleteEvent,
+  getEvent,
   getEvents,
   getMyEvents,
-  getEvent,
   getTickets,
-  createEvent,
-  updateEvent,
-  deleteEvent,
-  buyTicket,
   payout,
+  updateEvent,
 }
