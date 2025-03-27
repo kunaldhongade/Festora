@@ -116,8 +116,6 @@ const Page: NextPage = () => {
               <input
                 className="block w-full text-sm bg-transparent border-0 focus:outline-none focus:ring-0"
                 type="number"
-                step="0.01"
-                min="0.01"
                 name="ticketCost"
                 placeholder="Ticket cost (ETH)"
                 value={event.ticketCost}
