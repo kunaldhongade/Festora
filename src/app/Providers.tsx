@@ -7,12 +7,12 @@ import { http } from "viem";
 import { WagmiProvider } from "wagmi";
 import { polygonAmoy, sepolia } from "wagmi/chains";
 
-if (
-  !process.env.NEXT_PUBLIC_PAYMASTER_API_KEY ||
-  !process.env.NEXT_PUBLIC_BUNDLER_URL
-) {
-  throw new Error("Missing env var");
-}
+// if (
+//   !process.env.NEXT_PUBLIC_PAYMASTER_API_KEY ||
+//   !process.env.NEXT_PUBLIC_BUNDLER_URL
+// ) {
+//   throw new Error("Missing env var");
+// }
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const paymasterApiKey = process.env.NEXT_PUBLIC_PAYMASTER_API_KEY || "";
