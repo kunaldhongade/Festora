@@ -15,8 +15,7 @@ if (
 }
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const biconomyPaymasterApiKey =
-    process.env.NEXT_PUBLIC_PAYMASTER_API_KEY || "";
+  const paymasterApiKey = process.env.NEXT_PUBLIC_PAYMASTER_API_KEY || "";
   const bundlerUrl = process.env.NEXT_PUBLIC_BUNDLER_URL || "";
 
   const config = getDefaultConfig({
@@ -38,7 +37,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         <RainbowKitProvider>
           <BiconomyProvider
             config={{
-              biconomyPaymasterApiKey,
+              biconomyPaymasterApiKey: paymasterApiKey,
               bundlerUrl,
             }}
             queryClient={queryClient}
