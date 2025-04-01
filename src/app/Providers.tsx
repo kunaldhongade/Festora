@@ -37,8 +37,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         <RainbowKitProvider>
           <BiconomyProvider
             config={{
-              // biconomyPaymasterApiKey: paymasterApiKey,
-              paymasterApiKey: paymasterApiKey,
+              // biconomyPaymasterApiKey: paymasterApiKey, // use this for development
+              paymasterApiKey: paymasterApiKey, // use this for production
               bundlerUrl,
             }}
             queryClient={queryClient}

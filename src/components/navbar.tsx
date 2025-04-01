@@ -21,8 +21,11 @@ export function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-primary">
-              DappEventX
+            <Link
+              href={"/"}
+              className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
+            >
+              Festora
             </Link>
 
             <div className="hidden md:flex ml-10 space-x-8">
