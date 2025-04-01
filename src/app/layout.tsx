@@ -1,3 +1,4 @@
+import favicon from "@/assets/favicon.ico";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title: "Festora",
   description: "Built with Biconomy",
   icons: {
-    icon: "/favicon.ico",
+    icon: favicon as unknown as string,
   },
 };
 

@@ -23,7 +23,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link
               href={"/"}
-              className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-green-500 to-teal-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
             >
               Festora
             </Link>
