@@ -39,15 +39,35 @@ export function EventCard({
   const canPayout = isOwner && !event.paidOut && eventEnded;
 
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-lg">
+    <Card className="overflow-hidden transition-all hover:shadow-lg ">
       <div className="relative h-48">
         <Image
           src={event.imageUrl || "/placeholder.svg?height=200&width=400"}
           alt={event.title}
           fill
-          className="object-cover"
+          className={`object-cover transition-all duration-300 ${
+            eventEnded ? "grayscale" : ""
+          }`}
           priority={false}
         />
+        {!isOwner && (
+          <Badge
+            className={`absolute top-2 left-2 ${
+              eventEnded
+                ? "bg-primary text-white grayscale"
+                : hasAvailableSeats
+                ? "bg-green-600 text-white"
+                : "bg-yellow-500 text-white"
+            }`}
+          >
+            {eventEnded
+              ? "Event Ended"
+              : hasAvailableSeats
+              ? "Available Now"
+              : "Sold Out"}
+          </Badge>
+        )}
+
         {isOwner && (
           <Badge className="absolute top-2 right-2 bg-primary">
             Your Event
@@ -57,8 +77,8 @@ export function EventCard({
 
       <CardContent className="p-4">
         <h3 className="text-lg font-semibold mb-2">{event.title}</h3>
-        <p className="text-muted-foreground text-sm mb-4">
-          {truncateText(event.description, 100)}
+        <p className="text-muted-foreground text-sm mb-4 whitespace-pre">
+          {truncateText(event.description, 50)}
         </p>
 
         <div className="grid grid-cols-2 gap-2 text-sm">
