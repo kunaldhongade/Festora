@@ -1,5 +1,5 @@
 export interface EventStruct {
-  id: number;
+  _id: string; // MongoDB document ID
   title: string;
   imageUrl: string;
   description: string;
@@ -13,44 +13,6 @@ export interface EventStruct {
   timestamp: number;
   deleted: boolean;
   paidOut: boolean;
-  refunded: boolean;
-  minted: boolean;
-}
-
-export interface TicketType {
-  id: number;
-  eventId: number;
-  owner: string;
-  ticketCost: bigint;
-  timestamp: number;
-  refunded: boolean;
-  minted: boolean;
-}
-
-export interface TruncateParams {
-  text: string;
-  startChars: number;
-  endChars: number;
-  maxLength: number;
-}
-
-export interface EventParams {
-  id?: number;
-  title: string;
-  imageUrl: string;
-  description: string;
-  ticketCost: number | string;
-  capacity: number | string;
-  startsAt: number | string;
-  endsAt: number | string;
-}
-
-export interface TicketStruct {
-  id: number;
-  eventId: number;
-  owner: string;
-  ticketCost: number;
-  timestamp: number;
   refunded: boolean;
   minted: boolean;
 }

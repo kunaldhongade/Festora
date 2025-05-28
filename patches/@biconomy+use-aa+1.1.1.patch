@@ -1,0 +1,12 @@
+diff --git a/node_modules/@biconomy/use-aa/dist/_esm/actions/createSessionWithDistributedKey.js b/node_modules/@biconomy/use-aa/dist/_esm/actions/createSessionWithDistributedKey.js
+index 749c891..c722607 100644
+--- a/node_modules/@biconomy/use-aa/dist/_esm/actions/createSessionWithDistributedKey.js
++++ b/node_modules/@biconomy/use-aa/dist/_esm/actions/createSessionWithDistributedKey.js
+@@ -1,4 +1,6 @@
+-import { createSessionWithDistributedKey as createSessionWithDistributedKeyFromSDK, } from "@biconomy/account";
++// Change the import to match the exported function name
++import { createSessionWithDistributedKeyFromSDK } from "@biconomy/account";
++
+ /** @ignore */
+ export const createSessionWithDistributedKey = async (params, smartAccountClient) => {
+     if (!smartAccountClient) {

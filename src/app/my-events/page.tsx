@@ -3,7 +3,6 @@
 import { EventCard } from "@/components/event-card";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
-import { useEventContract } from "@/hooks/use-event-contract";
 import type { EventStruct } from "@/lib/types";
 import { Loader2, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -13,28 +12,59 @@ import { useAccount } from "wagmi";
 export default function MyEventsPage() {
   const router = useRouter();
   const { address, isConnected } = useAccount();
-  const { useMyEvents, deleteEvent, payoutEvent } = useEventContract();
-  const { myEvents: events, isLoading, error } = useMyEvents();
-  const [eventsList, setEvents] = useState<EventStruct[]>([]);
+  const [events, setEvents] = useState<EventStruct[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    setEvents(events);
-  }, [events]);
+  const fetchMyEvents = async () => {
+    if (!address) return;
 
-  const handleDelete = async (eventId: number) => {
     try {
-      await deleteEvent(eventId);
-      setEvents((prev) => prev.filter((event) => event.id !== eventId));
-    } catch (err) {
-      console.error("Failed to delete event:", err);
+      const ownerLowercase = address.toLowerCase();
+      console.log("Fetching events for owner:", ownerLowercase);
+
+      const res = await fetch("/api/events?owner=" + ownerLowercase);
+      const data = await res.json();
+
+      console.log("Received events data:", data);
+
+      if (res.ok) {
+        setEvents(data);
+        setError(null);
+      } else {
+        throw new Error(data.error || "Failed to fetch events");
+      }
+    } catch (err: any) {
+      console.error("Fetch error:", err);
+      setError(err.message);
+      setEvents([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handlePayout = async (eventId: number) => {
+  useEffect(() => {
+    if (isConnected && address) {
+      fetchMyEvents();
+    } else {
+      setEvents([]);
+      setIsLoading(false);
+    }
+  }, [isConnected, address]);
+
+  const handleDelete = async (id: string) => {
     try {
-      await payoutEvent(eventId);
+      console.log("Deleting event with id:", id);
+      const res = await fetch(`/api/events/${id}`, { method: "DELETE" });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to delete event");
+      }
+
+      setEvents((prev) => prev.filter((e) => e._id !== id));
     } catch (err) {
-      console.error("Failed to process payout:", err);
+      console.error("Failed to delete:", err);
     }
   };
 
@@ -65,19 +95,19 @@ export default function MyEventsPage() {
           ) : error ? (
             <div className="text-center py-16">
               <h2 className="text-xl font-semibold mb-2 text-destructive">
-                {error?.message || "An error occurred"}
+                {error}
               </h2>
-              <Button onClick={() => window.location.reload()}>Retry</Button>
+              <Button onClick={fetchMyEvents}>Retry</Button>
             </div>
-          ) : eventsList.length > 0 ? (
+          ) : events.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {eventsList.map((event: EventStruct) => (
+              {events.map((event) => (
                 <EventCard
-                  key={event.id}
+                  key={event._id}
                   event={event}
                   isOwner={true}
-                  onDelete={handleDelete}
-                  onPayout={handlePayout}
+                  onDelete={() => handleDelete(event._id)}
+                  onPayout={() => {}}
                 />
               ))}
             </div>
